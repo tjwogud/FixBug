@@ -34,7 +34,7 @@ namespace FixBug
         public static T Get<T>(this Type type, string name, object instance = null)
         {
             object rtn = type.Get(name, instance);
-            if (rtn.GetType().IsAssignableFrom(typeof(T)))
+            if (rtn != null && rtn.GetType().IsAssignableFrom(typeof(T)))
                 return (T)rtn;
             else
                 return default;
