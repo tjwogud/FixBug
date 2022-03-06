@@ -1,4 +1,5 @@
-﻿using HarmonyLib;
+﻿using FixBug.Utils;
+using HarmonyLib;
 using System;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -11,7 +12,7 @@ namespace FixBug.Patch
         public static void Prefix(ref string uri)
         {
             if (uri.StartsWith("file://"))
-                uri = new Uri(uri.Substring(7)).AbsoluteUri;
+                uri = "file://" + uri.Substring(7).Escape();
         }
     }
 }

@@ -1,5 +1,8 @@
 ﻿using HarmonyLib;
+using System.IO;
 using System.Reflection;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityModManagerNet;
 
 namespace FixBug
@@ -14,6 +17,11 @@ namespace FixBug
         {
             Logger = modEntry.Logger;
             modEntry.OnToggle = OnToggle;
+            modEntry.OnGUI = OnGUI;
+            string path = Path.Combine(Path.GetFullPath("."), "steam_appid.txt");
+            if (!File.Exists(path))
+                using (StreamWriter sw = File.CreateText(path))
+                    sw.WriteLine("977950");
         }
 
         private static bool OnToggle(UnityModManager.ModEntry modEntry, bool value)
@@ -29,6 +37,17 @@ namespace FixBug
                 harmony.UnpatchAll(modEntry.Info.Id);
             }
             return true;
+        }
+
+        private static void OnGUI(UnityModManager.ModEntry modEntry)
+        {
+            if (GUILayout.Button(RDString.language == SystemLanguage.Korean ? "현재 장면 재시작" : "Reload Current Scene", GUILayout.Width(150)))
+                ADOBase.RestartScene();
+            if (GUILayout.Button(RDString.language == SystemLanguage.Korean ? "게임 강제종료" : "Force Quit Game", GUILayout.Width(150)))
+            {
+                scnEditor.instance?.Set("forceQuit", true);
+                Application.Quit();
+            }
         }
     }
 }
