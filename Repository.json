@@ -2,8 +2,8 @@
   "Releases": [
     {
       "Id": "FixBug",
-      "Version": "1.2.0",
-      "DownloadUrl": "https://github.com/tjwogud/FixBug/releases/download/v1.2.0/FixBug.zip"
+      "Version": "1.2.1",
+      "DownloadUrl": "https://github.com/tjwogud/FixBug/releases/download/v1.2.1/FixBug.zip"
     }
   ]
 }

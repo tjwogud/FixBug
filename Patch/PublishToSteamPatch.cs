@@ -10,7 +10,6 @@ namespace FixBug.Patch
     {
         public static void Prefix(List<string> includedFiles, string tempDir)
         {
-            includedFiles.RemoveAll(file => !File.Exists(file));
             includedFiles.ForEach(file => {
                 if (!file.StartsWith(tempDir))
                     try {
