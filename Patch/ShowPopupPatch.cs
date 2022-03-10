@@ -19,7 +19,10 @@ namespace FixBug.Patch
                 component.AnchorPosY(endValue);
                 __instance.Set("popupIsAnimating", false);
                 if (!show)
+                {
+                    __instance.Set("showingPopup", false);
                     __instance.popupPanel.SetActive(false);
+                }
             });
         }
     }
