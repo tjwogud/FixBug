@@ -48,12 +48,6 @@ namespace FixBug
                 scnEditor.instance?.Set("forceQuit", true);
                 Application.Quit();
             }
-            if (GUILayout.Button("테스트", GUILayout.Width(150)))
-            {
-                Logger.Log($"playMode: {scnEditor.instance.playMode}");
-                Logger.Log($"userIsEditingAnInputField: {scnEditor.instance.Get<bool>("userIsEditingAnInputField")}");
-                Logger.Log($"showingPopup: {scnEditor.instance.Get<bool>("showingPopup")}");
-            }
         }
     }
 }
