@@ -100,6 +100,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
+    <Compile Include="Patch\GetUserIsEditingAnInputFieldPatch.cs" />
     <Compile Include="Patch\LateUpdatePatch.cs" />
     <Compile Include="Patch\ObjectsAtMousePatch.cs" />
     <Compile Include="Patch\PublishToSteamPatch.cs" />

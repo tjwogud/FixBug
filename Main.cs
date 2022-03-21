@@ -1,5 +1,6 @@
 ﻿using FixBug.Patch;
 using HarmonyLib;
+using System;
 using System.IO;
 using System.Reflection;
 using UnityEngine;
@@ -31,6 +32,8 @@ namespace FixBug
             {
                 harmony = new Harmony(modEntry.Info.Id);
                 harmony.PatchAll(Assembly.GetExecutingAssembly());
+                if (typeof(FloorMesh).GetMethod("GenerateCollider") != null)
+                    harmony.Patch(typeof(scnEditor).GetMethod("ObjectsAtMouse", BindingFlags.NonPublic | BindingFlags.Instance), new HarmonyMethod(typeof(ObjectsAtMousePatch), "Prefix"));
             }
             else
             {

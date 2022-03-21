@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace FixBug.Patch
 {
-    [HarmonyPatch(typeof(scnEditor), "ObjectsAtMouse")]
+    //[HarmonyPatch(typeof(scnEditor), "ObjectsAtMouse")]
     public static class ObjectsAtMousePatch
     {
         public static bool Prefix(ref GameObject[] __result, ref GameObject[] ___foundObjects, ref int ___lastFrameUpdated, LayerMask ___floorLayerMask)

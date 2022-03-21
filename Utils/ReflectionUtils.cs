@@ -81,7 +81,7 @@ namespace FixBug
 
         public static T Method<T>(this object obj, string name, object[] args = null, Type[] argTypes = null)
         {
-            return Method<T>(obj.GetType(), name, args, argTypes);
+            return Method<T>(obj.GetType(), name, args, argTypes, obj);
         }
 
         public static T Method<T>(this Type type, string name, object[] args = null, Type[] argTypes = null, object instance = null)
