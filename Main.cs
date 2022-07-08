@@ -32,8 +32,6 @@ namespace FixBug
             {
                 harmony = new Harmony(modEntry.Info.Id);
                 harmony.PatchAll(Assembly.GetExecutingAssembly());
-                if (typeof(FloorMesh).GetMethod("GenerateCollider") != null)
-                    harmony.Patch(typeof(scnEditor).GetMethod("ObjectsAtMouse", BindingFlags.NonPublic | BindingFlags.Instance), new HarmonyMethod(typeof(ObjectsAtMousePatch), "Prefix"));
             }
             else
             {

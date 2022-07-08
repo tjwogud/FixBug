@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using UnityEngine.Networking;
 
 namespace FixBug.Utils
 {
@@ -6,7 +8,7 @@ namespace FixBug.Utils
     {
         public static string Escape(this string uri)
         {
-            return Uri.EscapeDataString(uri).CaseReplace("%2f", "/").CaseReplace("%5c", "\\").CaseReplace("%3a", ":");
+            return Uri.EscapeUriString(uri);//Uri.EscapeDataString(uri).CaseReplace("%2f", "/").CaseReplace("%5c", "\\").CaseReplace("%3a", ":");
         }
     }
 }
