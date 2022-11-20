@@ -101,9 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
-    <Compile Include="Patch\GetUserIsEditingAnInputFieldPatch.cs" />
     <Compile Include="Patch\LateUpdatePatch.cs" />
-    <Compile Include="Patch\PublishToSteamPatch.cs" />
     <Compile Include="Patch\ReloadSongCoPatch.cs" />
     <Compile Include="Patch\GetAudioClipPatch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

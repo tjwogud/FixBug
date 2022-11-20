@@ -19,27 +19,5 @@ namespace FixBug.Patch
                 .Replace(Uri.HexEscape(Path.AltDirectorySeparatorChar), Path.AltDirectorySeparatorChar.ToString())
                 .Replace(Uri.HexEscape(Path.VolumeSeparatorChar), Path.VolumeSeparatorChar.ToString());
         }
-
-        public static void Prefix1(ref string uri)
-        {
-            if (uri.StartsWith("file://"))
-                uri = uri.Substring(7).Escape();
-        }
-
-        public static bool Prefix2(string uri, AudioType audioType, ref UnityWebRequest __result)
-        {
-            if (uri.StartsWith("file://"))
-            {
-                __result = UnityWebRequestMultimedia.GetAudioClip(new Uri(uri).AbsoluteUri, audioType);
-                return false;
-            }
-            return true;
-        }
-
-        public static void Prefix3(ref string uri)
-        {
-            if (uri.StartsWith("file://"))
-                uri = new Uri(uri).LocalPath;
-        }
     }
 }
